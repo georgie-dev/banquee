@@ -46,7 +46,9 @@ const CreatePin: React.FC<CreatePinProps> = ({ refetch }) => {
             update(ref(db, 'users/' + user.uid), data)
                 .then(() => {
                     refetch((prev) => !prev);  // Correct usage of refetch
-                    window.reload()
+                    if (typeof window !== 'undefined') {
+                        window.location.reload()
+                      }
                 })
                 .catch((error) => {
                     console.error('Error writing user data to the database:', error);
