@@ -6,13 +6,19 @@ import { db } from '@/lib/firebase';
 import { PulseLoader } from 'react-spinners';
 import { FaCheck } from "react-icons/fa6";
 import { Toast } from '@/components';
+import { UserData } from '@/components/data';
+interface ValidatePinProps {
+    close: React.Dispatch<React.SetStateAction<boolean>>;
+    data: any
+}
 
-const ValidatePin = ({ data, close }) => {
+const ValidatePin: React.FC<ValidatePinProps> = ({ data, close }) => {
     const [pin, setPin] = useState(['', '', '', '']);
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const { user } = useAuth()
-    const userData = JSON.parse(sessionStorage.getItem('userData'))
+    const userJson = sessionStorage.getItem('userData');
+    const userData: UserData | null = userJson ? JSON.parse(userJson) : null;
 
     const handleChange = (value: string, index: number) => {
         if (/^\d*$/.test(value)) {
@@ -20,14 +26,15 @@ const ValidatePin = ({ data, close }) => {
             newPin[index] = value;
             setPin(newPin);
 
-            // Move to the next input if a digit is entered
             if (value && index < 3) {
-                document.getElementById(`pin-${index + 1}`).focus();
+                const nextInput = document.getElementById(`pin-${index + 1}`);
+                if (nextInput) nextInput.focus();
             }
 
             // Move to the previous input if backspace is pressed and input is empty
             if (!value && index > 0) {
-                document.getElementById(`pin-${index - 1}`).focus();
+                const prevInput = document.getElementById(`pin-${index - 1}`);
+                if (prevInput) prevInput.focus();
             }
         }
     };
@@ -35,9 +42,9 @@ const ValidatePin = ({ data, close }) => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoading(true)
-        const formattedPin = pin.join('')
+        const formattedPin = parseInt(pin.join(''))
 
-        if (formattedPin != userData.pin) {
+        if (formattedPin != userData?.pin) {
             Toast.fire({
                 icon: "error",
                 title: 'Invalid Pin',

@@ -30,7 +30,7 @@ const Page = ({ params }: { params: { blog: string } }) => {
                     <div className='w-3/4 mx-auto min-h-96 relative rounded-md'>
                         <Image
                             alt='blog'
-                            src={book.image || '/blog/blog1.png'}
+                            src={book?.image || '/blog/blog1.png'}
                             fill
                             className="w-full rounded-md"
                         />

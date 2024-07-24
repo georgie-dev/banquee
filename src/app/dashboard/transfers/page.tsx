@@ -1,30 +1,32 @@
 'use client'
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import TransactionHistory from '../TransactionHistory'
 import ValidatePin from './ValidatePin'
+import { UserData } from '@/components/data'
 
 const Transfers = () => {
-    const user = JSON.parse(sessionStorage.getItem('userData'))
+    const userJson = sessionStorage.getItem('userData');
+    const user: UserData | null = userJson ? JSON.parse(userJson) : null;
     const [input, setInput] = useState({
         from: '',
         to: '',
         amount: '',
-        description:''
+        description: ''
     })
     const [error, setError] = useState('')
     const [pin, setPin] = useState(false)
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
         setInput((values) => ({ ...values, [name]: value }))
         setError('')
 
-        if(name==='to' && value.length < 12){
+        if (name === 'to' && value.length < 12) {
             setError('Enter valid Account number')
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setPin(true)
     }
@@ -48,7 +50,7 @@ const Transfers = () => {
                                 required
                             >
                                 <option value='' disabled>Select account</option>
-                                <option value={user.accountNumber}>{user.accountNumber}</option>
+                                <option value={user?.accountNumber}>{user?.accountNumber}</option>
                             </select>
                         </div>
                         <div className='flex flex-col gap-1 dm-sans-normal w-full'>
@@ -97,7 +99,7 @@ const Transfers = () => {
                 </form>
             </div>
             <TransactionHistory />
-            {pin && <ValidatePin data={input} close={setPin}/>}
+            {pin && <ValidatePin data={input} close={setPin} />}
         </main>
     )
 }
