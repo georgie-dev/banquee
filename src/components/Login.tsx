@@ -67,7 +67,7 @@ const Login = () => {
     };
 
     return (
-        <form className='py-4 px-7 flex flex-col gap-8' onSubmit={handleSubmit}>
+        <form className='py-4 px-7 flex flex-col w-full gap-8' onSubmit={handleSubmit}>
             {inputFields.map((field, index) => (
                 <InputField key={index} data={field} change={handleChange} input={input} />
             ))}

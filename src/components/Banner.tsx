@@ -39,7 +39,7 @@ const Banner = () => {
                     <Link href='/sign-up' className=' px-4 py-2 rounded-md text-sm font-semibold text-primary bg-white'>Open Account</Link>
                 </div>
             </div>
-            <div className='w-full lg:w-1/2 p-6'>
+            <div className='w-full lg:w-1/2 py-10 px-0 lg:p-6'>
                 <div className='bg-white rounded-xl shadow-md h-full w-full md:w-2/3 mx-auto flex flex-col'>
                     <div className='border-b py-3 text-center'>
                         <small className='font-semibold text-base dm-sans-bold text-primary'>Internet Banking Login</small>
