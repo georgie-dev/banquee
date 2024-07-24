@@ -22,8 +22,8 @@ const TransactionHistory: React.FC = () => {
             if (snapshot.exists()) {
                 setTransactions(Object.entries(snapshot.val()).map(([id, data]) => ({
                     id,
-                    ...data,
-                })) as Transaction[]);
+                    ...data as Omit<Transaction, 'id'>,
+                })));
             } else {
                 setTransactions([]);
             }

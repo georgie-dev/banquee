@@ -64,7 +64,7 @@ const ValidatePin: React.FC<ValidatePinProps> = ({ data, close }) => {
         //     return
         // }
 
-        push(ref(db, 'users/' + user.uid + '/transactions'), data)
+        push(ref(db, 'users/' + user?.uid + '/transactions'), data)
             .then(() => {
                 setSuccess(true)
                 setTimeout(() => {
