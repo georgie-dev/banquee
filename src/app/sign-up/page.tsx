@@ -66,7 +66,7 @@ const SignUp = () => {
             Toast.fire({
                 icon: "error",
                 title: error.message,
-                background: "#008000",
+                background: "#D84646",
             });
         } finally {
             setLoading(false);

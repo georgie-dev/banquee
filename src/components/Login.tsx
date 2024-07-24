@@ -59,7 +59,7 @@ const Login = () => {
             Toast.fire({
                 icon: "error",
                 title: error.code,
-                background: "#008000",
+                background: "#D84646",
             });
         } finally {
             setLoading(false);

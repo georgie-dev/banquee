@@ -53,7 +53,7 @@ const ValidatePin: React.FC<ValidatePinProps> = ({ data, close }) => {
             Toast.fire({
                 icon: "error",
                 title: 'Invalid Pin',
-                background: "#008000",
+                background: "#D84646",
             });
             setLoading(false)
             return

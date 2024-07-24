@@ -48,7 +48,7 @@ const TransactionHistory: React.FC = () => {
             <table>
                 <thead>
                     <tr className='*:p-2 *:text-start hover:bg-gray-50 py-2'>
-                        <th>Transaction ID</th>
+                        <th>ID</th>
                         <th>Description</th>
                         <th>Beneficiary</th>
                         <th>Amount</th>

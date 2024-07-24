@@ -18,7 +18,7 @@ export default function Layout({
                 <div className="w-fit h-full fixed bg-primary/50 lg:bg-primary/5 z-20">
                 <SideNav/>
                 </div>
-                <div className="w-full p-5  relative ml-10 lg:ml-80">{children}</div>
+                <div className="w-full p-5  relative pl-14 m-0 lg:p-0 lg:ml-80">{children}</div>
             </div>
         </main>
     );

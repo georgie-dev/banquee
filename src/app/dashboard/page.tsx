@@ -51,11 +51,11 @@ const Dashboard: React.FC = () => {
         <div className='w-full lg:w-1/3 p-3 border rounded-md shadow-md'>
           <small className='dm-sans-bold text-lg'>Quick Actions</small>
           <div className='p-5 grid grid-cols-2 gap-4'>
-            <Link href='/' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
+            <Link href='/dashboard' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
               <FaPlus className='font-semibold' />
               <span className='dm-sans-bold text-sm'>Account top-up</span>
             </Link>
-            <Link href='/' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
+            <Link href='/dashboard' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
               <PiHandWithdrawFill className='font-semibold' />
               <span className='dm-sans-bold text-sm'>Withdraw</span>
             </Link>
@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
               <FaMoneyBillTransfer className='font-semibold' />
               <span className='dm-sans-bold text-sm'>Send Money</span>
             </Link>
-            <Link href='/' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
+            <Link href='/dashboard' className='flex flex-col items-center gap-4 text-black dms-sans-normal border rounded-md p-4'>
               <FaMoneyBills className='font-semibold' />
               <span className='dm-sans-bold text-sm'>Pay bills</span>
             </Link>
