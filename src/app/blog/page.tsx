@@ -18,7 +18,7 @@ const Blog = () => {
                             <button>App</button>
                         </div>
                     </div>
-                    <div className='mt-3 grid grid-cols-3 gap-7'>
+                    <div className='mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7'>
                         {books.map((book, index) => (
                             <Article key={index} data={book} />
                         ))}

@@ -56,7 +56,7 @@ const Page = () => {
         <main>
             <Nav />
             <div className='w-full bg-primary/10 pt-14'>
-                <div className='flex items-center justify-between w-4/5 mx-auto'>
+                <div className='flex items-center flex-wrap justify-between w-4/5 mx-auto'>
                     <div className='flex flex-col dm-sans-normal gap-4 w-2/3'>
                         <small className='text-base font-semibold'>Support</small>
                         <h1 className='text-7xl font-medium'>How can <br /> we help you?</h1>
@@ -98,7 +98,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex w-3/4 mx-auto relative items-start justify-between'>
+            <div className='flex w-3/4 flex-wrap mx-auto relative items-start justify-between'>
                 <div className='w-1/4 sticky bg-gray-100 sm-sans-normal flex flex-col gap-5 rounded-md p-4'>
                     <h3 className='font-semibold text-base'>Categories</h3>
                     <div className='p-1 flex flex-col gap-3 *:font-semibold *:text-gray-400 *:text-sm'>
