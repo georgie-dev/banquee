@@ -59,7 +59,7 @@ const Page = () => {
                 <div className='flex items-center flex-wrap justify-between w-4/5 mx-auto'>
                     <div className='flex flex-col dm-sans-normal gap-4 w-2/3'>
                         <small className='text-base font-semibold'>Support</small>
-                        <h1 className='text-7xl font-medium'>How can <br /> we help you?</h1>
+                        <h1 className=' text-5xl lg:text-7xl font-medium'>How can <br /> we help you?</h1>
                     </div>
                     <div className='flex items-end w-1/3'>
                         <Image
@@ -72,12 +72,12 @@ const Page = () => {
                 </div>
             </div>
             <div className='w-full py-20'>
-                <div className='w-3/4 bg-primary rounded-lg mx-auto flex items-center px-4 py-6'>
-                    <div className='flex flex-col w-1/3 text-white dm-sans-normal gap-0'>
+                <div className='w-3/4 bg-primary rounded-lg mx-auto flex flex-col lg:flex-row items-center px-4 py-6'>
+                    <div className='flex flex-col w-full lg:w-1/3 text-white dm-sans-normal gap-0'>
                         <h4 className='text-2xl'>Still have questions?</h4>
                         <small className='text-xs'>We are here to help</small>
                     </div>
-                    <div className='w-2/3 flex justify-evenly items-center'>
+                    <div className='w-full lg:w-2/3 flex flex-col lg:flex-row justify-evenly items-center'>
                         <div className='flex items-center text-white gap-3'>
                             <div className=' w-8 h-8 flex items-center justify-center rounded-full bg-white/30'><MdLocalPhone /></div>
                             <div className='flex flex-col dm-sans-normal gap-1'>
@@ -99,14 +99,14 @@ const Page = () => {
                 </div>
             </div>
             <div className='flex w-3/4 flex-wrap mx-auto relative items-start justify-between'>
-                <div className='w-1/4 sticky bg-gray-100 sm-sans-normal flex flex-col gap-5 rounded-md p-4'>
+                <div className='w-full lg:w-1/4 sticky bg-gray-100 sm-sans-normal flex flex-col gap-5 rounded-md p-4'>
                     <h3 className='font-semibold text-base'>Categories</h3>
                     <div className='p-1 flex flex-col gap-3 *:font-semibold *:text-gray-400 *:text-sm'>
                         <Link href='/support#account'>Accounts</Link>
                         <Link href='/support#personal'>Personal Details</Link>
                     </div>
                 </div>
-                <div className='w-2/3'>
+                <div className='w-full lg:w-2/3'>
                     <FAQ data={faqs} />
                 </div>
             </div>

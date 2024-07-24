@@ -118,15 +118,15 @@ const SignUp = () => {
         },
     ]
     return (
-        <main className='min-h-screen flex gap-0 flex-wrap'>
-            <div className='w-full lg:w-1/2 h-full bg-primary min-h-screen flex items-center p-14'>
+        <main className='min-h-screen flex gap-0 flex-wrap px-4 lg:px-0 py-20 lg:px-0'>
+            <div className='w-full lg:w-1/2 hidden h-full bg-primary min-h-screen lg:flex items-center p-14'>
                 <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
                     <h1 className=' text-8xl font-medium'>Welcome to Banquee!</h1>
                     <h4 className='text-lg'>Join our community and take control of your finances with ease. Signing up is quick and simple. Let's get started!</h4>
                 </div>
             </div>
             <div className='w-full lg:w-1/2 flex items-center'>
-                <div className='bg-primary rounded-xl shadow-md h-fit w-3/4 mx-auto flex flex-col'>
+                <div className='bg-primary rounded-xl shadow-md h-fit w-full md:w-3/4 mx-auto flex flex-col'>
                     <div className='border-b py-3 text-center'>
                         <small className='font-semibold text-base dm-sans-bold text-white'>Create an Account</small>
                     </div>

@@ -16,6 +16,7 @@ const Header = () => {
         const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
         setUser(parsedUserData);
     }, []);
+    
     const { logout } = useAuth()
 
     return (
@@ -32,12 +33,12 @@ const Header = () => {
                 </div>
                 <div className='flex items-center relative dm-sans-normal justify-end gap-4'>
                     <div className='dropdown'>
-                        <div className='w-fit p-2 flex dropbtn items-center gap-1 hover:bg-gray-100'>
+                        <div className='w-fit p-2 flex dropbtn text-black items-center gap-1 hover:bg-gray-100'>
                             <div className='w-12 h-12 p-2 flex items-center justify-center'><FaRegCircleUser /></div>
                             <div className='font-semibold text-black text-sm'>{user?.firstName}</div>
                         </div>
                         <div className='dropdown-content'>
-                            <button onClick={logout} className='rounded-md bottom-0 p-2 flex items-center text-sm'>
+                            <button onClick={logout} className='rounded-md bottom-0 p-1 flex items-center text-sm'>
                                 <AiOutlinePoweroff />
                                 Logout
                             </button>

@@ -8,7 +8,7 @@ const Nav = () => {
 
   return (
     <div className='sticky top-0 z-50 m-0'>
-      <div className='w-full px-24 py-4 border-b bg-white box-border md:grid md:grid-cols-3 flex justify-between items-center gap-3'>
+      <div className='w-full px-4 lg:px-24 py-4 border-b bg-white box-border md:grid md:grid-cols-3 flex justify-between items-center gap-3'>
         <div>
           <Link href='/' className='text-3xl text-primary dm-sans-bold'>banquee.</Link>
         </div>

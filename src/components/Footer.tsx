@@ -66,11 +66,11 @@ const Footer = () => {
     ]
     return (
         <div className='w-full mt-10 border flex flex-col gap-3'>
-            <div className='border-b py-4 mx-auto flex items-start justify-between w-3/4 my-10'>
-            <div className='w-1/3'>
+            <div className='border-b py-4 mx-auto flex flex-col lg:flex-row items-start justify-between w-3/4 my-10'>
+            <div className='w-full lg:w-1/3'>
                 <Link href='/' className='text-3xl text-primary dm-sans-bold'>banquee.</Link>
             </div>
-            <div className='flex items-start w-2/3 justify-between'>
+            <div className='flex flex-col lg:flex-row gap-10 lg:gap-0 items-start w-full lg:w-2/3 justify-between'>
                 {footer?.map((footerItems, index) => (
                     <div className='flex flex-col gap-4' key={index}>
                         <h2 className='dm-sans-bold text-base'>{footerItems.title}</h2>

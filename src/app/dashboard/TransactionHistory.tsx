@@ -40,7 +40,7 @@ const TransactionHistory: React.FC = () => {
     }, [user]);
 
     return (
-        <div className='border p-4 rounded-md flex flex-col gap-8'>
+        <div className='border p-4 rounded-md flex flex-col gap-8 overflow-x-auto scrollbar-hide'>
             <div className='flex flex-col gap-0 dm-sans-normal'>
                 <h2 className='text-2xl font-semibold'>Recent Transactions</h2>
                 <small className='text-gray-400 text-sm'>View your recent account activity</small>
