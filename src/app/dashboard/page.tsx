@@ -23,7 +23,9 @@ const Dashboard: React.FC = () => {
       if (snapshot.exists()) {
         console.log(snapshot.val());
         setUserData(snapshot.val());
-        sessionStorage.setItem('userData', JSON.stringify(snapshot.val()));
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('userData', JSON.stringify(snapshot.val()));
+        }
       } else {
         setUserData(null);
       }
@@ -36,7 +38,7 @@ const Dashboard: React.FC = () => {
     if (user) {
       fetchUserData();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, refetch]);
 
   return (

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -9,8 +9,13 @@ import { UserData } from './data';
 
 const Header = () => {
     const pathName = usePathname()
-    const userJson = sessionStorage.getItem('userData');
-    const user: UserData | null = userJson ? JSON.parse(userJson) : null;
+    const [user, setUser] = useState<UserData | null>(null);
+
+    useEffect(() => {
+        const userJson = sessionStorage.getItem('userData');
+        const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
+        setUser(parsedUserData);
+    }, []);
     const { logout } = useAuth()
 
     return (

@@ -1,12 +1,17 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
 import { UserData } from '@/components/data';
 
 const Card = () => {
     const [showValue, setShowValue] = useState(false)
-    const userJson = sessionStorage.getItem('userData');
-    const user: UserData | null = userJson ? JSON.parse(userJson) : null;
+    const [user, setUser] = useState<UserData | null>(null);
+
+    useEffect(() => {
+        const userJson = sessionStorage.getItem('userData');
+        const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
+        setUser(parsedUserData);
+    }, []);
 
     return (
 

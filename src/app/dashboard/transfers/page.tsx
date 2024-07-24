@@ -1,12 +1,10 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import TransactionHistory from '../TransactionHistory'
 import ValidatePin from './ValidatePin'
 import { UserData } from '@/components/data'
 
 const Transfers = () => {
-    const userJson = sessionStorage.getItem('userData');
-    const user: UserData | null = userJson ? JSON.parse(userJson) : null;
     const [input, setInput] = useState({
         from: '',
         to: '',
@@ -15,6 +13,13 @@ const Transfers = () => {
     })
     const [error, setError] = useState('')
     const [pin, setPin] = useState(false)
+    const [user, setUser] = useState<UserData | null>(null);
+
+    useEffect(() => {
+        const userJson = sessionStorage.getItem('userData');
+        const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
+        setUser(parsedUserData);
+    }, []);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target

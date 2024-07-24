@@ -1,5 +1,5 @@
 'use client'
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useState, useEffect } from 'react'
 import { useAuth } from '@/lib/authProvider';
 import { ref, push } from "firebase/database";
 import { db } from '@/lib/firebase';
@@ -17,8 +17,13 @@ const ValidatePin: React.FC<ValidatePinProps> = ({ data, close }) => {
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const { user } = useAuth()
-    const userJson = sessionStorage.getItem('userData');
-    const userData: UserData | null = userJson ? JSON.parse(userJson) : null;
+    const [userData, setUserData] = useState<UserData | null>(null);
+
+    useEffect(() => {
+        const userJson = sessionStorage.getItem('userData');
+        const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
+        setUserData(parsedUserData);
+    }, []);
 
     const handleChange = (value: string, index: number) => {
         if (/^\d*$/.test(value)) {
