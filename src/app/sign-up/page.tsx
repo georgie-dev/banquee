@@ -162,11 +162,11 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
-            <div className='w-[85%] min-h-fit my-8 rounded-md p-8 bg-primary flex flex-wrap lg:hidden justify-between items-center'>
+            <div className='w-full min-h-fit my-8 rounded-md p-6 bg-primary flex flex-wrap lg:hidden justify-between items-center'>
                 <div className='w-full lg:w-1/2 flex flex-col gap-14'>
                     <div className='flex flex-col gap-8'>
                         <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
-                            <h1 className=' text-8xl font-medium'>Welcome to Banquee!</h1>
+                            <h1 className=' text-5xl font-medium'>Welcome to Banquee!</h1>
                             <h4 className='text-lg'>Join our community and take control of your finances with ease. Signing up is quick and simple. Let's get started!</h4>
                         </div>
                     </div>
