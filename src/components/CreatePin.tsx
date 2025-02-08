@@ -20,13 +20,11 @@ const CreatePin: React.FC<CreatePinProps> = ({ refetch }) => {
             newPin[index] = value;
             setPin(newPin);
 
-            // Move to the next input if a digit is entered
             if (value && index < 3) {
                 const nextInput = document.getElementById(`pin-${index + 1}`);
                 if (nextInput) nextInput.focus();
             }
 
-            // Move to the previous input if backspace is pressed and input is empty
             if (!value && index > 0) {
                 const prevInput = document.getElementById(`pin-${index - 1}`);
                 if (prevInput) prevInput.focus();
@@ -45,7 +43,7 @@ const CreatePin: React.FC<CreatePinProps> = ({ refetch }) => {
         if (user?.uid) {
             update(ref(db, 'users/' + user.uid), data)
                 .then(() => {
-                    refetch((prev) => !prev);  // Correct usage of refetch
+                    refetch((prev) => !prev);
                     if (typeof window !== 'undefined') {
                         window.location.reload()
                       }

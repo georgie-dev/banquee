@@ -1,25 +1,20 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react'
-import TransactionHistory from '../TransactionHistory'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import ValidatePin from './ValidatePin'
-import { UserData } from '@/components/data'
+import { useAuth } from '@/lib/authProvider'
+import QuickActions from './QuickActions'
 
 const Transfers = () => {
     const [input, setInput] = useState({
         from: '',
         to: '',
         amount: '',
-        description: ''
+        description: '',
+        type: 'Withdrawal'
     })
     const [error, setError] = useState('')
     const [pin, setPin] = useState(false)
-    const [user, setUser] = useState<UserData | null>(null);
-
-    useEffect(() => {
-        const userJson = sessionStorage.getItem('userData');
-        const parsedUserData: UserData | null = userJson ? JSON.parse(userJson) : null;
-        setUser(parsedUserData);
-    }, []);
+    const { userData } = useAuth()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
@@ -37,8 +32,8 @@ const Transfers = () => {
     }
 
     return (
-        <main className='flex flex-col gap-14 p-1'>
-            <div className='border p-4 rounded-md flex flex-col gap-8'>
+        <main className='flex flex-wrap items-stretch gap-4 my-4 *:w-full *:md:w-[48%]'>
+            <div className='border p-6 rounded-md flex flex-col gap-8'>
                 <div className='flex flex-col gap-0 dm-sans-normal'>
                     <h2 className='text-2xl font-semibold'>Transfer Funds</h2>
                     <small className='text-gray-400 text-sm'>Send money to your friends, family, or other accounts</small>
@@ -55,7 +50,7 @@ const Transfers = () => {
                                 required
                             >
                                 <option value='' disabled>Select account</option>
-                                <option value={user?.accountNumber}>{user?.accountNumber}</option>
+                                <option value={userData?.accountNumber}>Account 1 - {userData?.accountNumber}</option>
                             </select>
                         </div>
                         <div className='flex flex-col gap-1 dm-sans-normal w-full'>
@@ -99,11 +94,13 @@ const Transfers = () => {
                         </div>
                     </div>
                     <div className='w-full flex justify-end'>
-                        <button type='submit' className='bg-black text-white rounded-md px-4 py-2 font-semibold text-sm'>Transfer</button>
+                        <button type='submit' className='bg-primary text-white rounded-md px-4 py-2 font-semibold text-sm'>Transfer</button>
                     </div>
                 </form>
             </div>
-            <TransactionHistory />
+            <div>
+                <QuickActions />
+            </div>
             {pin && <ValidatePin data={input} close={setPin} />}
         </main>
     )

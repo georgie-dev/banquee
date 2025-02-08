@@ -8,7 +8,7 @@ const Nav = () => {
 
   return (
     <div className='sticky top-0 z-50 m-0'>
-      <div className='w-full px-4 lg:px-24 py-4 border-b bg-white box-border md:grid md:grid-cols-3 flex justify-between items-center gap-3'>
+      <div className='w-full px-4 lg:px-32 py-4 border-b bg-white box-border md:grid md:grid-cols-3 flex justify-between items-center gap-3'>
         <div>
           <Link href='/' className='text-3xl text-primary dm-sans-bold'>banquee.</Link>
         </div>
@@ -17,7 +17,7 @@ const Nav = () => {
           <Link href='/support' className={pathName.includes('/support') ? 'text-primary underline' : 'text-black'}>Support</Link>
         </div>
         <div className='md:flex items-center dm-sans-normal hidden text-sm justify-end gap-7'>
-          <Link href='/sign-up' className=' px-4 py-2 rounded-md text-white bg-primary'>Open Account</Link>
+          <Link href='/sign-up' className=' px-4 py-2 rounded-md text-white bg-primary hover:bg-secondary'>Open Account</Link>
         </div>
       </div>
     </div>

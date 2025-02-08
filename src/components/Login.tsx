@@ -74,7 +74,7 @@ const Login = () => {
             <div className='flex flex-col *:dm-sans-normal  gap-3'>
                 <button
                     type='submit'
-                    className='bg-primary text-white text-base font-semibold rounded-md py-3 disabled:opacity-50 disabled:pointer-events-none'
+                    className='bg-primary hover:bg-secondary text-white text-base font-semibold rounded-md py-3 disabled:opacity-50 disabled:pointer-events-none'
                     disabled={loading}
                 >
                     {loading ? (

@@ -1,83 +1,56 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/lib/authProvider';
-import { ref, child, get } from 'firebase/database';
-import { db } from '../../lib/firebase';
+import { Transaction } from '@/lib/authProvider';
 
-interface Transaction {
-    id: string;
-    description: string;
-    to: string;
-    amount: number;
-}
 
 const TransactionHistory: React.FC = () => {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
-    const { user } = useAuth();
-
-    const fetchUserData = async () => {
-        try {
-            const dbRef = ref(db);
-            const snapshot = await get(child(dbRef, `users/${user?.uid}/transactions`));
-            if (snapshot.exists()) {
-                setTransactions(Object.entries(snapshot.val()).map(([id, data]) => ({
-                    id,
-                    ...data as Omit<Transaction, 'id'>,
-                })));
-            } else {
-                setTransactions([]);
-            }
-        } catch (error) {
-            console.error("Error fetching user data:", error);
-        }
-    };
+    const { userData } = useAuth();
 
     useEffect(() => {
-        if (user) {
-            fetchUserData();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+        setTransactions(
+            Object.entries(userData?.transactions ?? {}).map(([id, data]) => ({
+                id,
+                ...data as Omit<Transaction, 'id'>,
+            })));
+    }, [userData])
+
+    // console.log(transactions)
+
 
     return (
-        <div className='border p-4 rounded-md flex flex-col gap-8 overflow-x-auto scrollbar-hide'>
-            <div className='flex flex-col gap-0 dm-sans-normal'>
-                <h2 className='text-2xl font-semibold'>Recent Transactions</h2>
-                <small className='text-gray-400 text-sm'>View your recent account activity</small>
+        <div className='border rounded-lg w-full p-6 flex-none overflow-x-auto scrollbar-hide'>
+            <div>
+                <h2 className='text-xl font-bold'>Recent Transactions</h2>
+                <small className='text-gray-400 text-sm'>Your latest account activity</small>
             </div>
-            <table>
+            <table className='my-4 w-full'>
                 <thead>
-                    <tr className='*:p-2 *:text-start hover:bg-gray-50 py-2'>
-                        <th>ID</th>
+                    <tr className='*:p-2 *:text-sm *:text-gray-400 hover:bg-gray-50'>
+                        <th>Date</th>
                         <th>Description</th>
-                        <th>Beneficiary</th>
+                        <th>Category</th>
                         <th>Amount</th>
-                        {/* <th>Status</th> */}
                     </tr>
                 </thead>
                 <tbody>
                     {transactions.map((transaction, index) => (
-                        <tr key={index} className='*:px-2 *:py-4 border-t-2 odd:bg-white even:bg-gray-100 *:text-sm '>
-                            <td>{transaction.id}</td>
+                        <tr key={index} className='*:px-2 *:py-4 *:text-center *:capitalize border-t-2 odd:bg-white even:bg-gray-100 *:text-sm hover:bg-gray-50'>
+                            <td>{new Date(Number(transaction.id)).toLocaleDateString()}</td>
                             <td>{transaction.description}</td>
-                            <td>{transaction.to}</td>
+                            <td>{transaction.type}</td>
                             <td>
-                                <span className='text-base px-2 py-1 text-red-400 font-semibold bg-white'>
-                                    -${transaction.amount}
+                                <span className={`text-base px-2 py-1 font-semibold ${transaction.type === 'expense' ? 'text-red-400' : 'text-green-500'}`}>
+                                    {transaction.type === 'expense' ? '-' : '+'}${transaction.amount}
                                 </span>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <div className='w-full flex flex-col gap-4'>
-                <div className='rounded-md shadow-sm p-2 flex items-start justify-between'>
-                    <div className='flex flex-col gap-1'>
-                        <h3></h3>
-                    </div>
-                </div>
-            </div>
         </div>
+
     );
 }
 

@@ -1,15 +1,11 @@
-'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link';
 import { IoIosCheckmark } from "react-icons/io";
-import { FaRegCircleUser, FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
-import { RiLockPasswordLine, RiSecurePaymentFill } from "react-icons/ri";
 import Login from './Login';
 
 const Banner = () => {
-    const [showPassword, setShowPassword] = useState(false)
     return (
-        <div className='w-[85%] min-h-fit my-8 rounded-md p-8 bg-primary flex flex-wrap justify-between items-center'>
+        <div className='w-5/6 min-h-fit my-8 rounded-md p-8 bg-primary flex flex-wrap justify-between items-center'>
             <div className='w-full lg:w-1/2 flex flex-col gap-14'>
                 <div className='flex flex-col gap-8'>
                     <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
@@ -40,7 +36,7 @@ const Banner = () => {
                 </div>
             </div>
             <div className='w-full lg:w-1/2 py-10 px-0 lg:p-6'>
-                <div className='bg-white rounded-xl shadow-md h-full w-full md:w-2/3 mx-auto flex flex-col'>
+                <div className='bg-white rounded-xl shadow-md h-full w-full md:w-3/4 mx-auto flex flex-col'>
                     <div className='border-b py-3 text-center'>
                         <small className='font-semibold text-base dm-sans-bold text-primary'>Internet Banking Login</small>
                     </div>

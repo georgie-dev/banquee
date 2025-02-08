@@ -56,6 +56,9 @@ const SignUp = () => {
                     lastName: input.lastName,
                     phone: input.phone,
                     balance: 0,
+                    income:0,
+                    expenses:0,
+                    savings:0,
                     accountNumber: generateAccountNumber(),
                     firstTimeUser: true
                 });
@@ -118,20 +121,20 @@ const SignUp = () => {
         },
     ]
     return (
-        <main className='min-h-screen flex gap-0 flex-wrap px-4 lg:px-0 py-20 '>
-            <div className='w-full lg:w-1/2 hidden h-full bg-primary min-h-screen lg:flex items-center p-14'>
+        <main className='w-full md:w-5/6 min-h-fit mx-auto md:my-14 md:rounded-md p-7 md:p-10 bg-primary flex flex-wrap gap-10 md:gap-0 justify-between items-center'>
+            <div className='w-full md:w-1/2 h-full lg:flex items-center'>
                 <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
-                    <h1 className=' text-8xl font-medium'>Welcome to Banquee!</h1>
+                    <h1 className='text-5xl md:text-7xl font-medium'>Welcome to Banquee!</h1>
                     <h4 className='text-lg'>Join our community and take control of your finances with ease. Signing up is quick and simple. Let's get started!</h4>
                 </div>
             </div>
-            <div className='w-full lg:w-1/2 hidden lg:flex items-center'>
-                <div className='bg-primary rounded-xl shadow-md h-fit w-full md:w-3/4 mx-auto flex flex-col'>
+            <div className='w-full md:w-1/2 lg:flex items-center'>
+                <div className='bg-white rounded-xl shadow-md h-fit w-full lg:w-4/5 mx-auto flex flex-col'>
                     <div className='border-b py-3 text-center'>
-                        <small className='font-semibold text-base dm-sans-bold text-white'>Create an Account</small>
+                        <small className='font-semibold text-base dm-sans-bold text-zinc-500'>Create an Account</small>
                     </div>
                     <form className='p-4 flex flex-col gap-8' onSubmit={handleSubmit}>
-                        <div className='grid grid-cols-2 gap-y-10 gap-x-8'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                             {inputFields.map((field, index) => (
                                 <InputField key={index} data={field} change={handleChange} input={input} />
                             ))}
@@ -139,7 +142,7 @@ const SignUp = () => {
                         <div className='flex flex-col *:dm-sans-normal  gap-3'>
                             <button type='submit'
                                 disabled={loading}
-                                className='bg-white text-primary text-base font-semibold rounded-md py-3 disabled:opacity-50 disabled:pointer-events-none'
+                                className='bg-primary hover:bg-secondary text-white text-base font-semibold rounded-md py-3 disabled:opacity-50 disabled:pointer-events-none'
                             >
                                 {loading ? (
                                     <PulseLoader
@@ -153,60 +156,13 @@ const SignUp = () => {
                                     "Sign up"
                                 )}
                             </button>
-                            <Link href='/' className='text-white text-center font-semibold text-sm'>Already have an account? <span className='font-bold underline underline-offset-4'>Login</span> </Link>
+                            <Link href='/' className='text-primary text-center font-semibold text-sm'>Already have an account? <span className='font-bold underline underline-offset-4'>Login</span> </Link>
                         </div>
                         <div className='flex items-center justify-center text-primary dm-sans-normal text-xs gap-2'>
                             <span><RiSecurePaymentFill /></span>
                             <span> 100% Safe and Secure</span>
                         </div>
                     </form>
-                </div>
-            </div>
-            <div className='w-full min-h-fit my-8 rounded-md p-6 bg-primary flex flex-wrap lg:hidden justify-between items-center'>
-                <div className='w-full lg:w-1/2 flex flex-col gap-14'>
-                    <div className='flex flex-col gap-8'>
-                        <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
-                            <h1 className=' text-5xl font-medium'>Welcome to Banquee!</h1>
-                            <h4 className='text-lg'>Join our community and take control of your finances with ease. Signing up is quick and simple. Let's get started!</h4>
-                        </div>
-                    </div>
-                </div>
-                <div className='w-full lg:w-1/2 py-10 px-0 lg:p-6'>
-                    <div className='bg-white lg:bg-primary rounded-xl shadow-md h-fit w-full md:w-3/4 mx-auto flex flex-col'>
-                        <div className='border-b py-3 text-center'>
-                            <small className='font-semibold text-base dm-sans-bold text-primary lg:text-white'>Create an Account</small>
-                        </div>
-                        <form className='p-4 flex flex-col gap-8' onSubmit={handleSubmit}>
-                            <div className='grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-8'>
-                                {inputFields.map((field, index) => (
-                                    <InputField key={index} data={field} change={handleChange} input={input} />
-                                ))}
-                            </div>
-                            <div className='flex flex-col *:dm-sans-normal  gap-3'>
-                                <button type='submit'
-                                    disabled={loading}
-                                    className='bg-primary lg:bg-white text-white lg:text-primary text-base font-semibold rounded-md py-3 disabled:opacity-50 disabled:pointer-events-none'
-                                >
-                                    {loading ? (
-                                        <PulseLoader
-                                            color="#FFFFFF"
-                                            loading={loading}
-                                            size={5}
-                                            aria-label="Loading Spinner"
-                                            data-testid="loader"
-                                        />
-                                    ) : (
-                                        "Sign up"
-                                    )}
-                                </button>
-                                <Link href='/' className='text-primary lg:text-white text-center font-semibold text-sm'>Already have an account? <span className='font-bold underline underline-offset-4'>Login</span> </Link>
-                            </div>
-                            <div className='flex items-center justify-center text-primary lg:text-white dm-sans-normal text-xs gap-2'>
-                                <span><RiSecurePaymentFill /></span>
-                                <span> 100% Safe and Secure</span>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </main>

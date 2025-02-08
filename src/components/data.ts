@@ -42,14 +42,3 @@ export const books = [
     tags: ["App", "Technology"],
   },
 ];
-
-export interface UserData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  accountNumber: string;
-  balance: number;
-  phone: string;
-  pin:number;
-  firstTimeUser: boolean
-}

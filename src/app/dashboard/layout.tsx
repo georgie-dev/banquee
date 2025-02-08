@@ -1,25 +1,30 @@
-import type { Metadata } from "next";
-import { Header, SideNav } from "@/components";
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/lib/authProvider';
+// import type { Metadata } from "next";
+import { Header } from "@/components";
 
-export const metadata: Metadata = {
-    title: "Dashboard || Internet Banking Services",
-    description: "Online Transaction Services ",
-};
 
 export default function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const { user } = useAuth();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!user) {
+            router.push("/");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
+
     return (
         <main>
             <Header />
-            <div className="flex gap-0">
-                <div className="w-fit h-full fixed bg-primary/50 lg:bg-primary/5 z-20">
-                <SideNav/>
-                </div>
-                <div className="w-full p-5  relative pl-14 m-0 lg:p-0 lg:ml-80">{children}</div>
-            </div>
+            <div className="w-full p-7 relative">{children}</div>
         </main>
     );
 }

@@ -4,13 +4,13 @@ import { getDatabase } from "firebase/database";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBuJaT782V0pTR0ROIc76N1KfE2nJ9hLw0",
-  authDomain: "banquee-2e49e.firebaseapp.com",
-  projectId: "banquee-2e49e",
-  storageBucket: "banquee-2e49e.appspot.com",
-  messagingSenderId: "705029991915",
-  appId: "1:705029991915:web:7677ecc2b9d6a68ef9bdae",
-  databaseURL: "https://banquee-2e49e-default-rtdb.firebaseio.com"
+  apiKey:process.env.NEXT_PUBLIC_API_KEY,
+  authDomain:process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId:process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket:process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId:process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId:process.env.NEXT_PUBLIC_APP_ID,
+  databaseURL:process.env.NEXT_PUBLIC_DATABASE_URL
 };
 
 // Initialize Firebase
