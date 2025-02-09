@@ -121,7 +121,7 @@ const SignUp = () => {
         },
     ]
     return (
-        <main className='w-full md:w-5/6 min-h-fit mx-auto md:my-14 md:rounded-md p-7 md:p-10 bg-primary flex flex-wrap gap-10 md:gap-0 justify-between items-center'>
+        <main className='w-11/12 md:w-5/6 min-h-fit mx-auto my-8 rounded-md p-4 md:p-10 bg-primary flex flex-wrap gap-10 md:gap-0 justify-between items-center'>
             <div className='w-full md:w-1/2 h-full lg:flex items-center'>
                 <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>
                     <h1 className='text-5xl md:text-7xl font-medium'>Welcome to Banquee!</h1>

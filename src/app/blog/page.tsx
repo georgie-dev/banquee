@@ -6,7 +6,7 @@ const Blog = () => {
     return (
         <main>
             <Nav />
-            <div className='w-2/3 relative mx-auto block'>
+            <div className='w-4/5 md:w-2/3 relative mx-auto block'>
                 <div className='p-12 text-center text-6xl dm-sans-bold'>Blog</div>
                 <div className='flex flex-col gap-4'>
                     <div className='flex items-center gap-2 dm-sans-normal'>

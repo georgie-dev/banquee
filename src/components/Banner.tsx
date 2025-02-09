@@ -5,7 +5,7 @@ import Login from './Login';
 
 const Banner = () => {
     return (
-        <div className='w-5/6 min-h-fit my-8 rounded-md p-8 bg-primary flex flex-wrap justify-between items-center'>
+        <div className='w-11/12 md:w-5/6 min-h-fit my-8 rounded-md p-4 md:p-8 bg-primary flex flex-wrap justify-between items-center'>
             <div className='w-full lg:w-1/2 flex flex-col gap-14'>
                 <div className='flex flex-col gap-8'>
                     <div className='*:dm-sans-normal *:font-semibold *:text-white flex flex-col gap-6'>

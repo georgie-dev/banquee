@@ -14,20 +14,20 @@ const Page = ({ params }: { params: { blog: string } }) => {
     return (
         <main>
             <Nav />
-            <div className='w-3/4 mx-auto py-20'>
+            <div className='w-5/6 md:w-3/4 mx-auto py-20'>
                 <div className='flex flex-col gap-4'>
-                    <div className='w-2/3 mx-auto flex gap-3 flex-col items-center text-center'>
+                    <div className='w-full md:w-2/3 mx-auto flex gap-3 flex-col items-center text-center'>
                         <div className=' flex gap-2 my-4 items-center'>
                             {book?.tags?.map((tag: string, index: number) => (
                                 <small className='text-xs text-primary p-2 bg-gray-100 rounded-md' key={index}>{tag}</small>
                             ))}
                         </div>
-                        <h2 className='dm-sans-normal capitalize text-6xl'>{book?.title}</h2>
+                        <h2 className='dm-sans-normal capitalize text-3xl md:text-6xl'>{book?.title}</h2>
                         <div className='w-1/2 font-semibold'>
                             <h4>{book?.overview}</h4>
                         </div>
                     </div>
-                    <div className='w-3/4 mx-auto min-h-96 relative rounded-md'>
+                    <div className=' w-full md:w-3/4 mx-auto min-h-96 relative rounded-md'>
                         <Image
                             alt='blog'
                             src={book?.image || '/blog/blog1.png'}
@@ -35,7 +35,7 @@ const Page = ({ params }: { params: { blog: string } }) => {
                             className="w-full rounded-md"
                         />
                     </div>
-                    <div className='w-1/2 mx-auto text-justify flex dm-sans-bold flex-col gap-4'>
+                    <div className=' w-full md:w-1/2 mx-auto text-justify flex dm-sans-bold flex-col gap-4'>
                         <h3 className='font-semibold text-lg'>Sit deserunt dolore.</h3>
                         <p className='font-normal'>Culpa ex velit veniam cillum consectetur duis sint irure elit id duis duis. Labore ad elit occaecat cillum dolor cupidatat incididunt ex amet nulla ad laborum. Mollit ex minim duis fugiat deserunt dolor minim veniam veniam aliqua dolor laboris enim sit. Velit elit dolore mollit velit in magna sit amet. Anim ullamco consectetur do dolore ea ea elit aliquip sunt deserunt magna fugiat. Consequat magna mollit est exercitation proident.
                             Voluptate cupidatat aliquip exercitation amet sint tempor dolore commodo. Deserunt occaecat incididunt est adipisicing ullamco consequat fugiat amet duis nulla ipsum duis. Sit mollit culpa ipsum do duis occaecat do est labore amet. Eiusmod esse exercitation magna dolore consectetur enim labore laborum ex ad consequat dolor in. Aliquip in mollit nisi Lorem nulla ipsum consectetur. Excepteur et et velit nisi mollit culpa sit.
